@@ -1,7 +1,9 @@
 import React from 'react';
-import { Segment, Form } from 'semantic-ui-react';
+import { Form, Segment } from 'semantic-ui-react'; 
+import Flatpickr from 'react-flatpickr';
+import 'flatpickr/dist/themes/airbnb.css';
 
-function Personal() {
+function Personal(props) {
   return (
     <Segment>
       <Form.Field>
@@ -19,7 +21,9 @@ function Personal() {
         </Form.Field>
         <Form.Field>
           <label>Date of Birth</label>
-          <input type="date" name="dob" placeholder="Date of Birth" />
+          <Flatpickr
+            value={props.dob}
+            onChange={props.setDob} />
         </Form.Field>
       </Form.Group>
     </Segment>
@@ -27,4 +31,3 @@ function Personal() {
 }
 
 export default Personal;
-

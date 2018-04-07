@@ -5,13 +5,22 @@ import Personal from './Marks/Personal';
 class MarksForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dob: ''
+    }
+    this.setDob = this.setDob.bind(this);
+  }
+  setDob(dob) {
+    this.setState({
+      dob
+    });
   }
   render() {
     return (
       <Container>
         <Header>ADD STUDENT DETAILS</Header>
         <Form onSubmit={this.getMarks}>
-          <Personal />
+          <Personal dob={this.state.dob} setDob={this.setDob} />
         </Form>
       </Container>
     );
