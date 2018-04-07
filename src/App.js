@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.getGeneralDetails = this.getGeneralDetails.bind(this);
+    this.getClassDetails = this.getClassDetails.bind(this);
   }
   getGeneralDetails(data) {
     this.schoolDetails = data;
