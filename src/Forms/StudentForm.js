@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Form, Header, Button, Divider } from "semantic-ui-react";
 import Personal from "./Marks/Personal";
 import Marks from "./Marks/Marks";
+import db from "../db";
 
 class StudentForm extends React.Component {
   constructor(props) {
@@ -25,7 +26,19 @@ class StudentForm extends React.Component {
   }
   getStudentDetails(event) {
     const { dob, ...rest } = this.state;
-    console.log(rest);
+    const target = event.target;
+    const student = {
+      name: target.name.value,
+      admission: target.admission.value,
+      religion: target.religion.value,
+      dob: this.state.dob[0],
+      standard: this.props.section,
+      marks: rest
+    };
+    db
+      .table("students")
+      .add(student)
+      .then(id => console.log(id));
   }
   render() {
     return (
