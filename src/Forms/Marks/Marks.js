@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Segment, Header } from "semantic-ui-react";
+import { Form, Segment, Header, Step } from "semantic-ui-react";
 import subjects from "./subjects";
 import Part1 from "./Part1";
 import Part2 from "./Part2";
@@ -8,8 +8,12 @@ import Part3 from "./Part3";
 class Marks extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      active: "Part 1"
+    };
     this.subjectsSection = subjects[props.section];
     this.max = Marks.generateMax(this.subjectsSection);
+    this.changeTab = this.changeTab.bind(this);
   }
   static generateMax(section) {
     const max = {
@@ -18,13 +22,47 @@ class Marks extends React.Component {
     };
     return max;
   }
+  changeTab(event, { title }) {
+    this.setState({
+      active: title
+    });
+  }
   render() {
+    const { active } = this.state;
     return (
-      <Segment>
-        <Part1 subjects={this.subjectsSection[1]} max={this.max} />
-        <Part2 subjects={this.subjectsSection[2]} />
-        <Part3 subjects={this.subjectsSection[3]} />
-      </Segment>
+      <React.Fragment>
+        <Step.Group attached="top">
+          <Step
+            link
+            onClick={this.changeTab}
+            active={active === "Part 1"}
+            title="Part 1"
+          />
+          <Step
+            link
+            onClick={this.changeTab}
+            active={active === "Part 2"}
+            title="Part 2"
+          />
+          <Step
+            link
+            onClick={this.changeTab}
+            active={active === "Part 3"}
+            title="Part 3"
+          />
+        </Step.Group>
+        <Segment attached>
+          {active === "Part 1" && (
+            <Part1
+              subjects={this.subjectsSection[1]}
+              max={this.max}
+              emit={this.props.emit}
+            />
+          )}
+          {active === "Part 2" && <Part2 subjects={this.subjectsSection[2]} />}
+          {active === "Part 3" && <Part3 subjects={this.subjectsSection[3]} />}
+        </Segment>
+      </React.Fragment>
     );
   }
 }

@@ -49,7 +49,7 @@ class DualGroup extends React.Component {
         <Form.Field>
           <input
             placeholder="CE"
-            name={`ce-${subject.code}`}
+            name="ce"
             className="mark-input"
             type="number"
             value={this.state.ce}
@@ -62,7 +62,7 @@ class DualGroup extends React.Component {
         <Form.Field>
           <input
             placeholder="TE"
-            name={`te-${subject.code}`}
+            name="te"
             type="number"
             className="mark-input"
             value={this.state.te}

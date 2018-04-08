@@ -3,6 +3,7 @@ import { Header } from "semantic-ui-react";
 import DualGroup from "./DualGroup";
 
 class Part1 extends React.Component {
+  createData() {}
   render() {
     return (
       <React.Fragment>
@@ -12,6 +13,7 @@ class Part1 extends React.Component {
             <DualGroup
               key={subject.name}
               subject={subject}
+              emit={this.props.emit}
               max={this.props.max}
             />
           );
