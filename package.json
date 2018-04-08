@@ -2,6 +2,7 @@
   "name": "promotion",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://boywithsilverwings.github.io/promotion-list",
   "dependencies": {
     "dexie": "^2.0.2",
     "flatpickr": "^4.4.3",
