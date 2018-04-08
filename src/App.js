@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import GeneralForm from './Forms/GeneralForm';
-import MarksForm from './Forms/MarksForm';
-import ClassForm from './Forms/ClassForm';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import GeneralForm from "./Forms/GeneralForm";
+import StudentForm from "./Forms/StudentForm";
+import ClassForm from "./Forms/ClassForm";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.classDetails = {
+      section: "nine"
+    };
     this.getGeneralDetails = this.getGeneralDetails.bind(this);
     this.getClassDetails = this.getClassDetails.bind(this);
   }
@@ -22,9 +25,25 @@ class App extends Component {
       <Router>
         <main>
           <Navbar />
-          <Route exact path='/' render={(props) => <GeneralForm {...props} get={this.getGeneralDetails} />} />
-          <Route path='/class' render={(props)=> <ClassForm {...props} get={this.getClassDetails} /> } />
-          <Route path='/marks' render={(props)=> <MarksForm {...props} />} />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <GeneralForm {...props} get={this.getGeneralDetails} />
+            )}
+          />
+          <Route
+            path="/class"
+            render={props => (
+              <ClassForm {...props} get={this.getClassDetails} />
+            )}
+          />
+          <Route
+            path="/marks"
+            render={props => (
+              <StudentForm {...props} section={this.classDetails.section} />
+            )}
+          />
         </main>
       </Router>
     );
