@@ -40,9 +40,10 @@ class DualGroup extends React.Component {
           <label>{subject.name}</label>
         </Form.Field>
         <Form.Field>
-          <Input
+          <input
             placeholder="CE"
             name="ce"
+            className="mark-input"
             type="number"
             value={this.state.ce}
             onChange={this.handleInputChange}
@@ -50,10 +51,11 @@ class DualGroup extends React.Component {
           <label>/{this.max.ce}</label>
         </Form.Field>
         <Form.Field>
-          <Input
+          <input
             placeholder="TE"
             name="te"
             type="number"
+            className="mark-input"
             value={this.state.te}
             onChange={this.handleInputChange}
           />
