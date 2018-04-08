@@ -3,7 +3,6 @@ import { Header } from "semantic-ui-react";
 import DualGroup from "./DualGroup";
 
 class Part1 extends React.Component {
-  createData() {}
   render() {
     return (
       <React.Fragment>

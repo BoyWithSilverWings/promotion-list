@@ -39,7 +39,7 @@ class App extends Component {
             )}
           />
           <Route
-            path="/marks"
+            path="/student"
             render={props => (
               <StudentForm {...props} section={this.classDetails.section} />
             )}

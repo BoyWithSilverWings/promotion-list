@@ -21,11 +21,13 @@ class DualGroup extends React.Component {
   }
   generateGrade(ce, te, max) {
     const totalMax = max.ce + max.te;
-    const totalMarks = (parseInt(ce) || 0) + (parseInt(te) || 0);
+    const totalMarks = (parseInt(ce, 10) || 0) + (parseInt(te, 10) || 0);
     const percentage = totalMarks / totalMax * 100;
+    const grade = percentage;
     this.setState({
-      grade: percentage
+      grade: grade
     });
+    this.props.emit(this.props.subject.code, { ce, te, grade }); //duel
   }
   handleInputChange(event) {
     const target = event.target;
