@@ -25,7 +25,7 @@ class ClassForm extends React.Component {
     window.localStorage.setItem("CLASS", data.class);
     window.localStorage.setItem("SECTION", data.section);
     window.localStorage.setItem("DIVISION", data.division);
-    this.props.history.push("/marks");
+    this.props.history.push("/student");
   }
   sectionChange(event, select) {
     this.setState({
