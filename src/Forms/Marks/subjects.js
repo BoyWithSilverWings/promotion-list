@@ -1,6 +1,22 @@
 export default {
-  up: [],
-  eight: [],
+  up: {
+    1: {
+      list: []
+    },
+    2: {},
+    3: {}
+  },
+  eight: {
+    1: {
+      list: []
+    },
+    2: {
+      list: []
+    },
+    3: {
+      list: []
+    }
+  },
   nine: {
     te: 40,
     ce: 10,

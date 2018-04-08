@@ -18,7 +18,7 @@ class ClassForm extends React.Component {
   getMarks(event) {
     const target = event.target;
     const data = {
-      class: target.name.value,
+      class: target.class.value,
       division: target.division.value,
       section: this.state.section
     };

@@ -55,7 +55,7 @@ class Marks extends React.Component {
           {active === "Part 1" && (
             <Part1
               subjects={this.subjectsSection[1].list}
-              dual={this.subjectsSection[1].dual}
+              dual={this.subjectsSection[1].dual || false}
               max={this.max}
               emit={this.props.emit}
             />

@@ -6,9 +6,9 @@ class GeneralForm extends React.Component {
     super(props);
     this.name = window.localStorage.getItem("SCHOOL_NAME");
     this.days = window.localStorage.getItem("DAYS");
-    this.getSchoolName = this.getSchoolName.bind(this);
+    this.setSchoolName = this.setSchoolName.bind(this);
   }
-  getSchoolName(event) {
+  setSchoolName(event) {
     const data = {
       name: event.target.schoolName.value,
       days: event.target.days.value
@@ -21,7 +21,7 @@ class GeneralForm extends React.Component {
     return (
       <Container>
         <Header>School Details</Header>
-        <Form onSubmit={this.getSchoolName}>
+        <Form onSubmit={this.setSchoolName}>
           <Form.Field required>
             <label>School Name</label>
             <input
