@@ -51,6 +51,46 @@ export default {
         name: "ICT",
         code: "ICT"
       }
+    ],
+    2: [
+      {
+        name: "Work Experience",
+        code: "WE"
+      },
+      {
+        name: "AE",
+        code: "AE"
+      },
+      {
+        name: "HPE",
+        code: "HPE"
+      }
+    ],
+    3: [
+      {
+        name: "CS",
+        code: "CS"
+      },
+      {
+        name: "C/C",
+        code: "C/C"
+      },
+      {
+        name: "GWS",
+        code: "GWS"
+      },
+      {
+        name: "RG",
+        code: "RG"
+      },
+      {
+        name: "LQ",
+        code: "LQ"
+      },
+      {
+        name: "SCA",
+        code: "SCA"
+      }
     ]
   }
 };

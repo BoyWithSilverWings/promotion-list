@@ -1,10 +1,10 @@
 import React from "react";
 import { Header, Form } from "semantic-ui-react";
 
-function Part2({ subjects }) {
+function Part3({ subjects }) {
   return (
     <React.Fragment>
-      <Header>Part 2</Header>
+      <Header>Part 3</Header>
       {subjects.map(subject => {
         return (
           <Form.Group inline widths="equal" key={subject.code}>
@@ -21,4 +21,4 @@ function Part2({ subjects }) {
   );
 }
 
-export default Part2;
+export default Part3;

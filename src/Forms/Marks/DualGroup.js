@@ -19,18 +19,25 @@ class DualGroup extends React.Component {
     };
     return generatedMax;
   }
-  static generateGrade(ce, te, max) {
-    const totalMax = (max.ce = max.te);
-    return ce + te / totalMax * 100;
+  generateGrade(ce, te, max) {
+    const totalMax = max.ce + max.te;
+    const totalMarks = (parseInt(ce) || 0) + (parseInt(te) || 0);
+    const percentage = totalMarks / totalMax * 100;
+    this.setState({
+      grade: percentage
+    });
   }
   handleInputChange(event) {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
-    this.setState({
-      [name]: value
-    });
+    this.setState(
+      {
+        [name]: value
+      },
+      () => this.generateGrade(this.state.ce, this.state.te, this.max)
+    );
   }
   render() {
     const { subject } = this.props;
@@ -42,10 +49,12 @@ class DualGroup extends React.Component {
         <Form.Field>
           <input
             placeholder="CE"
-            name="ce"
+            name={`ce-${subject.code}`}
             className="mark-input"
             type="number"
             value={this.state.ce}
+            min={0}
+            max={this.max.ce}
             onChange={this.handleInputChange}
           />
           <label>/{this.max.ce}</label>
@@ -53,10 +62,12 @@ class DualGroup extends React.Component {
         <Form.Field>
           <input
             placeholder="TE"
-            name="te"
+            name={`te-${subject.code}`}
             type="number"
             className="mark-input"
             value={this.state.te}
+            min={0}
+            max={this.max.te}
             onChange={this.handleInputChange}
           />
           <label>/{this.max.te}</label>
