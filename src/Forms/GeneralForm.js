@@ -15,7 +15,6 @@ class GeneralForm extends React.Component {
     };
     window.localStorage.setItem("SCHOOL_NAME", data.name);
     window.localStorage.setItem("DAYS", data.days);
-    this.props.get(data);
     this.props.history.push("/class");
   }
   render() {

@@ -11,31 +11,15 @@ class App extends Component {
     this.classDetails = {
       section: "nine"
     };
-    this.getGeneralDetails = this.getGeneralDetails.bind(this);
-    this.getClassDetails = this.getClassDetails.bind(this);
-  }
-  getGeneralDetails(data) {
-    this.schoolDetails = data;
   }
   render() {
     return (
       <Router>
         <main>
           <Navbar />
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <GeneralForm {...props} get={this.getGeneralDetails} />
-            )}
-          />
+          <Route exact path="/" component={GeneralForm} />
           <Route path="/class" component={ClassForm} />
-          <Route
-            path="/student"
-            render={props => (
-              <StudentForm {...props} section={this.classDetails.section} />
-            )}
-          />
+          <Route path="/student" component={StudentForm} />
         </main>
       </Router>
     );

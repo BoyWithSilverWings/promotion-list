@@ -22,7 +22,6 @@ class ClassForm extends React.Component {
       division: target.division.value,
       section: this.state.section
     };
-    this.props.get(data);
     window.localStorage.setItem("CLASS", data.class);
     window.localStorage.setItem("SECTION", data.section);
     window.localStorage.setItem("DIVISION", data.division);

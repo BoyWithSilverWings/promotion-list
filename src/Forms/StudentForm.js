@@ -10,6 +10,7 @@ class StudentForm extends React.Component {
     this.state = {
       dob: ""
     };
+    this.section = window.localStorage.getItem("SECTION");
     this.setDob = this.setDob.bind(this);
     this.getStudentDetails = this.getStudentDetails.bind(this);
     this.getMarks = this.getMarks.bind(this);
@@ -46,7 +47,7 @@ class StudentForm extends React.Component {
         <Header>ADD STUDENT DETAILS</Header>
         <Form onSubmit={this.getStudentDetails} autoComplete="on">
           <Personal dob={this.state.dob} setDob={this.setDob} />
-          <Marks section={this.props.section} emit={this.getMarks} />
+          <Marks section={this.section} emit={this.getMarks} />
           <Divider hidden />
           <Container textAlign="center">
             <Button type="submit" primary>
