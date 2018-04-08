@@ -54,16 +54,23 @@ class Marks extends React.Component {
         <Segment attached>
           {active === "Part 1" && (
             <Part1
-              subjects={this.subjectsSection[1]}
+              subjects={this.subjectsSection[1].list}
+              dual={this.subjectsSection[1].dual}
               max={this.max}
               emit={this.props.emit}
             />
           )}
           {active === "Part 2" && (
-            <Part2 subjects={this.subjectsSection[2]} emit={this.props.emit} />
+            <Part2
+              subjects={this.subjectsSection[2].list}
+              emit={this.props.emit}
+            />
           )}
           {active === "Part 3" && (
-            <Part3 subjects={this.subjectsSection[3]} emit={this.props.emit} />
+            <Part3
+              subjects={this.subjectsSection[3].list}
+              emit={this.props.emit}
+            />
           )}
         </Segment>
       </React.Fragment>
