@@ -17,9 +17,6 @@ class App extends Component {
   getGeneralDetails(data) {
     this.schoolDetails = data;
   }
-  getClassDetails(data) {
-    this.classDetails = data;
-  }
   render() {
     return (
       <Router>
@@ -32,12 +29,7 @@ class App extends Component {
               <GeneralForm {...props} get={this.getGeneralDetails} />
             )}
           />
-          <Route
-            path="/class"
-            render={props => (
-              <ClassForm {...props} get={this.getClassDetails} />
-            )}
-          />
+          <Route path="/class" component={ClassForm} />
           <Route
             path="/student"
             render={props => (
