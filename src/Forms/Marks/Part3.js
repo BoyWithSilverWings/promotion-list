@@ -2,6 +2,7 @@ import React from "react";
 import { Header, Form } from "semantic-ui-react";
 
 function Part3({ subjects, emit }) {
+  console.log(subjects);
   return (
     <React.Fragment>
       <Header>Part 3</Header>

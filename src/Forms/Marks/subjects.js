@@ -74,7 +74,7 @@ export default {
     },
     3: {
       dual: true,
-      subjects: [
+      list: [
         {
           name: "CS",
           code: "CS"
