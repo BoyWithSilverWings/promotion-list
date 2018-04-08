@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Segment, Header, Step } from "semantic-ui-react";
+import { Segment, Header, Step } from "semantic-ui-react";
 import subjects from "./subjects";
 import Part1 from "./Part1";
 import Part2 from "./Part2";
@@ -59,8 +59,12 @@ class Marks extends React.Component {
               emit={this.props.emit}
             />
           )}
-          {active === "Part 2" && <Part2 subjects={this.subjectsSection[2]} />}
-          {active === "Part 3" && <Part3 subjects={this.subjectsSection[3]} />}
+          {active === "Part 2" && (
+            <Part2 subjects={this.subjectsSection[2]} emit={this.props.emit} />
+          )}
+          {active === "Part 3" && (
+            <Part3 subjects={this.subjectsSection[3]} emit={this.props.emit} />
+          )}
         </Segment>
       </React.Fragment>
     );

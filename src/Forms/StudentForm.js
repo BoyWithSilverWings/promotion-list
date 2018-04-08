@@ -10,6 +10,7 @@ class StudentForm extends React.Component {
       dob: ""
     };
     this.setDob = this.setDob.bind(this);
+    this.getStudentDetails = this.getStudentDetails.bind(this);
     this.getMarks = this.getMarks.bind(this);
   }
   setDob(dob) {
@@ -17,17 +18,22 @@ class StudentForm extends React.Component {
       dob
     });
   }
-  getStudentDetails(event) {
-    console.log(event.target);
+  getMarks(subjectCode, mark, part) {
+    this.setState({
+      [subjectCode]: mark
+    });
   }
-  getMarks() {}
+  getStudentDetails(event) {
+    const { dob, ...rest } = this.state;
+    console.log(rest);
+  }
   render() {
     return (
       <Container>
         <Header>ADD STUDENT DETAILS</Header>
         <Form onSubmit={this.getStudentDetails} autoComplete="on">
           <Personal dob={this.state.dob} setDob={this.setDob} />
-          <Marks section={this.props.section} />
+          <Marks section={this.props.section} emit={this.getMarks} />
           <Divider hidden />
           <Container textAlign="center">
             <Button type="submit" primary>

@@ -3,6 +3,9 @@ import { Header } from "semantic-ui-react";
 import DualGroup from "./DualGroup";
 
 class Part1 extends React.Component {
+  emit = (subjectCode, marks) => {
+    this.props.emit(subjectCode, marks, "Part 1");
+  };
   render() {
     return (
       <React.Fragment>
@@ -12,7 +15,7 @@ class Part1 extends React.Component {
             <DualGroup
               key={subject.name}
               subject={subject}
-              emit={this.props.emit}
+              emit={this.emit}
               max={this.props.max}
             />
           );
