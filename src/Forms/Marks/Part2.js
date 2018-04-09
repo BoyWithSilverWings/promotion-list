@@ -14,7 +14,7 @@ function Part2({ subjects, emit }) {
             <Form.Field>
               <input
                 type="text"
-                maxLength={1}
+                maxLength={2}
                 required
                 name={subject.code}
                 onChange={event => emit(subject.code, event.target.value)}

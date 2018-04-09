@@ -30,7 +30,7 @@ class Part1 extends React.Component {
                 <Form.Field>
                   <input
                     type="text"
-                    maxLength={1}
+                    maxLength={2}
                     required
                     name={subject.code}
                     onChange={event =>
