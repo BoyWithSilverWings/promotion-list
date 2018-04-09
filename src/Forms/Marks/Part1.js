@@ -17,6 +17,9 @@ class Part1 extends React.Component {
                 key={subject.name}
                 section={this.props.section}
                 subject={subject}
+                mark={
+                  this.props.marks[subject.code] || { ce: 0, te: 0, grade: "" }
+                }
                 emit={this.emit}
                 max={this.props.max}
               />
@@ -32,6 +35,7 @@ class Part1 extends React.Component {
                     type="text"
                     maxLength={2}
                     required
+                    defaultValue={this.props.marks[subject.code] || ""}
                     name={subject.code}
                     onChange={event =>
                       this.props.emit(subject.code, event.target.value)

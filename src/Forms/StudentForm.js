@@ -8,7 +8,8 @@ class StudentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dob: ""
+      dob: "",
+      marks: {}
     };
     this.section = window.localStorage.getItem("SECTION");
     this.class = window.localStorage.getItem("CLASS");
@@ -23,12 +24,15 @@ class StudentForm extends React.Component {
     });
   }
   getMarks(subjectCode, mark, part) {
-    this.setState({
-      [subjectCode]: mark
-    });
+    this.setState(prevState => ({
+      marks: {
+        ...prevState.marks,
+        [subjectCode]: mark
+      }
+    }));
   }
   setStudentDetails(event) {
-    const { dob, ...rest } = this.state;
+    const { dob, marks } = this.state;
     const target = event.target;
     const student = {
       name: target.name.value,
@@ -36,7 +40,7 @@ class StudentForm extends React.Component {
       religion: target.religion.value,
       dob: this.state.dob[0],
       standard: this.section,
-      marks: rest,
+      marks,
       class: this.class,
       division: this.division
     };
@@ -51,7 +55,11 @@ class StudentForm extends React.Component {
         <Header>ADD STUDENT DETAILS</Header>
         <Form onSubmit={this.setStudentDetails} autoComplete="on">
           <Personal dob={this.state.dob} setDob={this.setDob} />
-          <Marks section={this.section} emit={this.getMarks} />
+          <Marks
+            section={this.section}
+            marks={this.state.marks}
+            emit={this.getMarks}
+          />
           <Divider hidden />
           <Container textAlign="center">
             <Button type="submit" primary>

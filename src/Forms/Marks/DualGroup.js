@@ -13,6 +13,14 @@ class DualGroup extends React.Component {
     this.max = DualGroup.generateMax(this.props.subject, this.props.max);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+  componentDidMount() {
+    const mark = this.props.mark;
+    this.setState({
+      ce: mark.ce,
+      te: mark.te,
+      grade: mark.grade
+    });
+  }
   static generateMax(subject, max) {
     const generatedMax = {
       te: subject.te || max.te,
@@ -43,7 +51,7 @@ class DualGroup extends React.Component {
     );
   }
   render() {
-    const { subject } = this.props;
+    const { subject, mark } = this.props;
     return (
       <Form.Group inline widths="equal">
         <Form.Field>

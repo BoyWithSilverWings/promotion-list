@@ -1,7 +1,7 @@
-import React from 'react';
-import { Form, Segment } from 'semantic-ui-react'; 
-import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/themes/airbnb.css';
+import React from "react";
+import { Form, Segment } from "semantic-ui-react";
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/themes/airbnb.css";
 
 function Personal(props) {
   return (
@@ -12,18 +12,16 @@ function Personal(props) {
       </Form.Field>
       <Form.Field>
         <label>Name</label>
-        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="name" placeholder="Name" autoComplete="off" />
       </Form.Field>
-      <Form.Group widths='equal'>
+      <Form.Group widths="equal">
         <Form.Field>
           <label>Religion/Caste</label>
           <input type="text" name="religion" placeholder="Religion/Caste" />
         </Form.Field>
         <Form.Field>
           <label>Date of Birth</label>
-          <Flatpickr
-            value={props.dob}
-            onChange={props.setDob} />
+          <Flatpickr value={props.dob} onChange={props.setDob} />
         </Form.Field>
       </Form.Group>
     </Segment>

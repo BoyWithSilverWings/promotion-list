@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, Form } from "semantic-ui-react";
 
-function Part3({ subjects, emit }) {
+function Part3({ subjects, emit, marks }) {
   return (
     <React.Fragment>
       <Header>Part 3</Header>
@@ -16,6 +16,7 @@ function Part3({ subjects, emit }) {
                 type="text"
                 maxLength={2}
                 required
+                defaultValue={marks[subject.code] || ""}
                 name={subject.code}
                 onChange={event => emit(subject.code, event.target.value)}
               />
