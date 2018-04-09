@@ -1,5 +1,5 @@
 function ninethGrade(percentage) {
-  const roundPer = parseInt(percentage / 10);
+  const roundPer = parseInt(percentage / 10, 10);
   switch (roundPer) {
     case 10:
       return "A+";
