@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, Header, Step } from "semantic-ui-react";
+import { Segment, Step } from "semantic-ui-react";
 import subjects from "./subjects";
 import Part1 from "./Part1";
 import Part2 from "./Part2";
@@ -56,6 +56,7 @@ class Marks extends React.Component {
             <Part1
               subjects={this.subjectsSection[1].list}
               dual={this.subjectsSection[1].dual || false}
+              section={this.props.section}
               max={this.max}
               emit={this.props.emit}
             />

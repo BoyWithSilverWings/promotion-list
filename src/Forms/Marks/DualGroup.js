@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Input } from "semantic-ui-react";
+import findGrade from "./findGrade";
 
 class DualGroup extends React.Component {
   constructor(props) {
@@ -23,11 +24,11 @@ class DualGroup extends React.Component {
     const totalMax = max.ce + max.te;
     const totalMarks = (parseInt(ce, 10) || 0) + (parseInt(te, 10) || 0);
     const percentage = totalMarks / totalMax * 100;
-    const grade = percentage;
+    const grade = findGrade(this.props.section, percentage);
     this.setState({
       grade: grade
     });
-    this.props.emit(this.props.subject.code, { ce, te, grade }); //duel
+    this.props.emit(this.props.subject.code, { ce, te, grade }); //dual
   }
   handleInputChange(event) {
     const target = event.target;

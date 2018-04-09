@@ -15,6 +15,7 @@ class Part1 extends React.Component {
             return (
               <DualGroup
                 key={subject.name}
+                section={this.props.section}
                 subject={subject}
                 emit={this.emit}
                 max={this.props.max}

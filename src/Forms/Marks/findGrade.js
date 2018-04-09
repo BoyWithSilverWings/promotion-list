@@ -1,5 +1,4 @@
 function ninethGrade(percentage) {
-  let grade;
   const roundPer = parseInt(percentage / 10);
   switch (roundPer) {
     case 10:
@@ -39,14 +38,14 @@ function eighthGrade(percentage) {
   }
 }
 
-function findGrade(standard, percentageList) {
+function findGrade(standard, percentage) {
   switch (standard) {
     case "up":
-      return percentageList;
+      return percentage;
     case "eight":
-      return percentageList.map(eighthGrade);
+      return eighthGrade(percentage);
     case "nine":
-      return percentageList.map(ninethGrade);
+      return ninethGrade(percentage);
     default:
       console.log("Unknown Standard");
   }
